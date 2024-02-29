@@ -4,8 +4,8 @@
       var bikes = new Array();
       var stageW = 800;
       var stageH = 150;
-      var messageLayer = new Kinetic.Layer();
-      var layer = new Kinetic.Layer();
+      var messageLayer = new Konva.Layer();
+      var layer = new Konva.Layer();
       var score = 0;
       var gameTime = 0;
       var start;
@@ -94,19 +94,19 @@
         context.fillStyle = 'darkred';
         context.fillText(message, 0,25);
       }
-      var stage = new Kinetic.Stage({
+      var stage = new Konva.Stage({
         container: 'container',
         width: stageW,
         height: stageH
       });
-      var topLine = new Kinetic.Line({
+      var topLine = new Konva.Line({
 	      points: [0, gameTop, stage.getWidth(), gameTop],
 	      stroke: 'blue',
 	      strokeWidth: 5,
 	      lineCap: 'round',
 	      lineJoin: 'round'
       });
-      var bottomLine = new Kinetic.Line({
+      var bottomLine = new Konva.Line({
 	      points: [0, stage.getHeight(), stage.getWidth(),stage.getHeight()],
 	      stroke: 'green',
 	      strokeWidth: 10,
@@ -118,7 +118,7 @@
       var imageObj2 = new Image();
       var finish = new Image();
       imageObj.onload = function() {
-        var finishline = new Kinetic.Image({
+        var finishline = new Konva.Image({
           x: 720,
           y: stage.getHeight() / 2 - 50,
           image: finish,
@@ -127,7 +127,7 @@
         });
       layer.add(finishline);
       for (var i=0 ; i < bikemax ; i++) {
-         bikes[i] = new Kinetic.Image({
+         bikes[i] = new Konva.Image({
             x: (i==0) ? 50 : 100+Math.random()*(stageW-200),
             y: (i==0) ? 50 : (Math.random()*(stageH-gameTop))+gameTop,
             image: (i==0) ? imageObj2 : imageObj ,
